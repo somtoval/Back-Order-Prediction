@@ -4,3 +4,4 @@ seaborn
 imblearn
 scikit-learn
 xgboost
+flask

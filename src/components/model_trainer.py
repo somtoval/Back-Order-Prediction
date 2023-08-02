@@ -99,6 +99,10 @@ class ModelTrainer:
 
             predicted = best_model.predict(X_test)
             accuracy = accuracy_score(y_test, predicted)
+            print('>>> Test Accuracy >>>->:', accuracy)
+
+            train_accuracy = accuracy_score(y_train, best_model.predict(X_train))
+            print('>>> Train Accuracy >>>->:', train_accuracy)
 
             return accuracy
         

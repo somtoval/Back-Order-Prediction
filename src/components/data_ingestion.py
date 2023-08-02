@@ -26,7 +26,7 @@ class DataIngestion:
         try:
             df = pd.read_csv('C:/Users/user/My ML Projects/Back Order Prediction/notebooks/data/backorder.csv', nrows=2000)
             if 'sku' in df.columns:
-                df.drop(columns=['sku'], axis=1)
+                df.drop(columns=['sku'], axis=1, inplace=True)
             df.drop_duplicates(inplace=True)
             df.dropna(subset=["went_on_backorder"], inplace=True)
 
@@ -54,10 +54,13 @@ class DataIngestion:
             
             train_set, test_set = train_test_split(df, test_size=0.2, random_state=42)
 
-            df.to_csv(self.ingestion_config.train_data_path, index=False)
-            df.to_csv(self.ingestion_config.test_data_path, index=False)
+            train_set.to_csv(self.ingestion_config.train_data_path, index=False)
+            test_set.to_csv(self.ingestion_config.test_data_path, index=False)
 
-            logging.info('Exited initiate_data_ingestion method of DataIngestion Class')
+            logging.info(f'Exited initiate_data_ingestion method of DataIngestion Class')
+            print(df)
+            print(df.info())
+            logging.info(f'The dataframe after ingestion: {df}')
 
             return(
                     self.ingestion_config.train_data_path,

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- Add the Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="text-center"> <!-- Added a div with text-center class -->
+                    <h1>Back Order Prediction</h1><br><br>
+                    <div class="text-center">
+                        {% if output %}
+                            <h4>Prediction: {{ output }}</h1>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="national_inv">National_inv:</label>
+                        <input type="text" id="national_inv" name="national_inv" placeholder="Enter the national_inv">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="lead_time">Lead_time:</label>
+                        <input type="text" id="lead_time" name="lead_time" placeholder="Enter the lead_time">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="in_transit_qty">In_transit_qty:</label>
+                        <input type="text" id="in_transit_qty" name="in_transit_qty" placeholder="Enter the in_transit_qty">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="forecast_3_month">Forecast_3_month:</label>
+                        <input type="text" id="forecast_3_month" name="forecast_3_month" placeholder="Enter the forecast_3_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="forecast_3_month">Forecast_6_month:</label>
+                        <input type="text" id="forecast_6_month" name="forecast_6_month" placeholder="Enter the forecast_6_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="forecast_9_month">Forecast_9_month:</label>
+                        <input type="text" id="forecast_9_month" name="forecast_9_month" placeholder="Enter the forecast_9_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="sales_1_month">Sales_1_month:</label>
+                        <input type="text" id="sales_1_month" name="sales_1_month" placeholder="Enter the sales_1_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="sales_3_month">Sales_3_month:</label>
+                        <input type="text" id="sales_3_month" name="sales_3_month" placeholder="Enter the sales_3_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="sales_6_month">Sales_6_month:</label>
+                        <input type="text" id="sales_6_month" name="sales_6_month" placeholder="Enter the sales_6_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="sales_9_month">Sales_9_month:</label>
+                        <input type="text" id="sales_9_month" name="sales_9_month" placeholder="Enter the sales_9_month">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="min_bank">Min_Bank:</label>
+                        <input type="text" id="min_bank" name="min_bank" placeholder="Enter the min_bank">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="potential_issue">Potential_issue:</label>
+                        <input type="text" id="potential_issue" name="potential_issue" placeholder="Enter the potential_issue">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="carat">Pieces_past_due:</label>
+                        <input type="text" id="pieces_past_due" name="pieces_past_due" placeholder="Enter the pieces_past_due">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="perf_6_month_avg">perf_6_month_avg:</label>
+                        <input type="text" id="perf_6_month_avg" name="perf_6_month_avg" placeholder="Enter the perf_6_month_avg">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="perf_12_month_avg">perf_12_month_avg:</label>
+                        <input type="text" id="perf_12_month_avg" name="perf_12_month_avg" placeholder="Enter the perf_12_month_avg">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="local_bo_qty">local_bo_qty:</label>
+                        <input type="text" id="local_bo_qty" name="local_bo_qty" placeholder="Enter the local_bo_qty">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="deck_risk">deck_risk:</label>
+                        <input type="text" id="deck_risk" name="deck_risk" placeholder="Enter the deck_risk">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="oe_constraint">oe_constraint:</label>
+                        <input type="text" id="oe_constraint" name="oe_constraint" placeholder="Enter the oe_constraint">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="ppap_risk">ppap_risk:</label>
+                        <input type="text" id="ppap_risk" name="ppap_risk" placeholder="Enter the ppap_risk">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="stop_auto_buy">stop_auto_buy:</label>
+                        <input type="text" id="stop_auto_buy" name="stop_auto_buy" placeholder="Enter the stop_auto_buy">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="rev_stop">rev_stop:</label>
+                        <input type="text" id="rev_stop" name="rev_stop" placeholder="Enter the rev_stop">
+                    </div><br>
+                </div> <!-- Closing the text-center div -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Predict</button>
+                </div>
+            </form>
+            <br><br>
+        </div>
+    </div>
+    <!-- Add the Bootstrap JS and jQuery link here if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+46nO6Nv6bW3IAnMD0qeqa6NJdaJXKEguG2Hg9g5Tu1a45V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-ZEfnnVqdBbXhWpONXy3iV8ldxRAms8jEoAzlzq+5vh7y1lbetQr4KGEmLBiBfVJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-h0zBY5ZnkcSqBk9Ei7z9YOelBz+5N0e+6sUrIWq3vaxvyxJfTfk6BcIn3wuI6ZbE" crossorigin="anonymous"></script>
+</body>
+</html>

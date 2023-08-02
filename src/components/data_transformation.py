@@ -59,8 +59,13 @@ class DataTransformation:
             input_feature_test_df = test_df.drop(columns=['went_on_backorder'])
             target_feature_test_df = test_df['went_on_backorder']
 
+            print('>>>>>>>>>>>>>>>>>>>>>>>Train: ', input_feature_train_df.columns)
+            print('>>>>>>>>>>>>>>>>>>>>>>>Test: ', input_feature_test_df.columns)
+
             transformed_input_train_feature = preprocessor.fit_transform(input_feature_train_df)
+            print('Length of train', transformed_input_train_feature.shape)
             transformed_input_test_feature = preprocessor.transform(input_feature_test_df)
+            print('Length of test', transformed_input_test_feature.shape)
 
             train_arr = np.c_[transformed_input_train_feature, np.array(target_feature_train_df)]
             test_arr = np.c_[transformed_input_test_feature, np.array(target_feature_test_df)]
